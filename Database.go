@@ -21,9 +21,8 @@ func Init(){
 	db.DB().SetMaxIdleConns(10)
 	db.DB().SetMaxOpenConns(100)
 	//creating the tables .
-	db.CreateTable(&Villa{})
-	fmt.Println("Villas table has been created .")
 	//db.Set("gorm:table_options", "ENGINE=InnoDB").CreateTable(&Villa{})
+	db.CreateTable(&Villa{})
 	db.CreateTable(&VillaOwner{})
 	db.CreateTable(&Day{})
 	db.CreateTable(&Reservation{})
