@@ -11,7 +11,7 @@ import (
 
 func main() {
 	fmt.Println("Villa Booking API starting ...")
-	Init()	//creates the database and the tables .
+	//Init()	//creates the database and the tables .
 	dummyVillaData()	//creates some dummty villas for testing purposes .
 	m := martini.Classic()
 	m.Use(auth.Basic("root", "secret"))

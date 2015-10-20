@@ -6,9 +6,13 @@ import (
 	"fmt"
 )
 
+const (
+	dbName = "villasdb.db"
+)
+
 func Init(){
 	
-	db, _ := gorm.Open("sqlite3", "villas.db")	//openning the database .D
+	db, _ := gorm.Open("sqlite3", dbName)	//openning the database .D
 	db.LogMode(true)	//enabling logs in database .
 	
 	db.DB()
@@ -18,12 +22,13 @@ func Init(){
 	db.DB().SetMaxOpenConns(100)
 	//creating the tables .
 	db.CreateTable(&Villa{})
+	fmt.Println("Villas table has been created .")
 	//db.Set("gorm:table_options", "ENGINE=InnoDB").CreateTable(&Villa{})
 	db.CreateTable(&VillaOwner{})
 	db.CreateTable(&Day{})
 	db.CreateTable(&Reservation{})
 	db.CreateTable(&ReservationTable{})
-	//db.CreateTable(&ImageGallery{})
+	db.CreateTable(&ImageGallery{})
 	
 	fmt.Println("Table Villas has been created .")
 }
@@ -35,19 +40,19 @@ func dummyVillaData() {
 	villaThree := Villa{Name: "Kish 2", Description: "The luxuriest villa ever in south !"}
 	villaFour := Villa{Name: "Antalia 3", Description: "Life is short, engoy it now !!!"}
 	
-	db, _ := gorm.Open("sqlite3", "villas.db")	//openning the database .D
+	db, _ := gorm.Open("sqlite3", dbName)	//openning the database .D
 	db.LogMode(true)	//enabling logs in database .
 	//saving the villas into database:
 	db.Save(&villaOne)
 	db.Save(&villaTwo)
-	db.Save(villaThree)
-	db.Save(villaFour)	
+	db.Save(&villaThree)
+	db.Save(&villaFour)	
 	
 	fmt.Println("Dummy villas has been created .")
 }
 
 func getVillas() []Villa {
-	db, _ := gorm.Open("sqlite3", "villas.db")	//openning the database .D
+	db, _ := gorm.Open("sqlite3", dbName)	//openning the database .D
 	db.LogMode(true)	//enabling logs in database .
 	
 	var villas []Villa
