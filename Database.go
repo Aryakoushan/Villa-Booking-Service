@@ -34,10 +34,10 @@ func Init(){
 
 func dummyVillaData() {
 	//creates some dummy villas for testing purposes .
-	villaOne := Villa{Name: "Daryakenar 2", Description: "The hottest villa in the north !"}
-	villaTwo := Villa{Name: "Kish 1", Description: "The best villa you can find in Kish Island !"}
-	villaThree := Villa{Name: "Kish 2", Description: "The luxuriest villa ever in south !"}
-	villaFour := Villa{Name: "Antalia 3", Description: "Life is short, engoy it now !!!"}
+	villaOne := Villa{Name: "Daryakenar 2", Description: "The hottest villa in the north !", Rating: 3, Price: 40}
+	villaTwo := Villa{Name: "Kish 1", Description: "The best villa you can find in Kish Island !", Rating: 4, Price: 80}
+	villaThree := Villa{Name: "Kish 2", Description: "The luxuriest villa ever in south !", Rating: 4.5, Price: 92}
+	villaFour := Villa{Name: "Antalia 3", Description: "Life is short, engoy it now !!!", Rating: 5, Price: 129}
 	
 	db, _ := gorm.Open("sqlite3", dbName)	//openning the database .D
 	db.LogMode(true)	//enabling logs in database .
@@ -56,6 +56,6 @@ func getVillas() []Villa {
 	
 	var villas []Villa
 	
-	db.Select("ID, Name, Description").Find(&villas)
+	db.Select("*").Find(&villas)
 	return villas
 }

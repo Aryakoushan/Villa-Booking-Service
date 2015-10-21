@@ -21,6 +21,7 @@ type Villa struct {
 	Table		ReservationTable
 	Gallery		ImageGallery
 	Rating		float32
+	Price		float64
 }
 
 type ReservationTable struct {
