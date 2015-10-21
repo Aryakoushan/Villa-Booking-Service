@@ -5,9 +5,8 @@ import (
 	"fmt"
 	"bytes"
 	"github.com/go-martini/martini"
-	"github.com/martini-contrib/auth"
+	//"github.com/martini-contrib/auth"
 	"encoding/json"
-	//"net/http"
 )
 
 func main() {
@@ -15,7 +14,7 @@ func main() {
 	//Init()	//creates the database and the tables .
 	//dummyVillaData()	//creates some dummty villas for testing purposes .
 	m := martini.Classic()
-	m.Use(auth.Basic("root", "secret"))
+	//m.Use(auth.Basic("root", "secret"))
 	
 	m.Get("/", Index)
 	m.Get("/getAllVillas", GetAllVillas)

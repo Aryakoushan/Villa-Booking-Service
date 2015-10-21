@@ -20,6 +20,7 @@ type Villa struct {
 	Description string `sql:"size:255"`
 	Table		ReservationTable
 	Gallery		ImageGallery
+	Rating		float32
 }
 
 type ReservationTable struct {
