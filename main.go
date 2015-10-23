@@ -1,4 +1,4 @@
-// villa_service_3 project main.go
+// villa_service_3 project main program
 package main
 
 import (
